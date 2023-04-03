@@ -10,7 +10,7 @@ client.auto_paginate = true
 open_issues = client.list_issues(repo, { :labels =>  label, :state => 'open'})
 
 open_issues.each do |issue|
-  client.add_comment(repo, issue.number, "Fixed in ``v#{version}``.")
+  client.add_comment(repo, issue.number, "Fixed in ``#{version}``.")
   client.close_issue(repo, issue.number)
   client.remove_label(repo, issue.number, label)
 end
